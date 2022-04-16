@@ -1,9 +1,22 @@
 //Exercise A
-
+//1.
 use employees 
+//.2
 show dbs
 
 // Exercise B
-
+//1.
+use temporary
+db.creatCollection('test');
+show dbs 
+show collections
+db.dropDatabase()
+//2.
+use employees 
+db.createCollection('accounting');
+db.createCollection('HR');
+db.createCollection('IT');
+//3. 
+show collections 
 
 
