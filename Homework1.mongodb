@@ -19,4 +19,14 @@ db.createCollection('IT');
 //3. 
 show collections 
 
+//Exercise C
+//1.
+db.IT.insertOne({employeeid: 01, name: "David Smith", salary: 70000})
+db.accounting.insertMany([{employeeid: 11, name: "Jane Lane", salary: 55000},{employeeid: 12, name: "Oscar Isaac", salary:55000}])
+db.HR.insertMany([{employeeid: 21, name: "Clark Kent", salary: 75000},{employeeid: 22, name: "Bruce Wayne", salary:75000}])
+//2.
+db.IT.find()
+db.account.find()
+db.HR.find()
 
+//Exercise D
