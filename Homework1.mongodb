@@ -30,3 +30,29 @@ db.account.find()
 db.HR.find()
 
 //Exercise D
+//1.
+db.IT.insert({
+    employeeid: 1187,
+    name: "John Steight",
+    salary: 75000
+})
+db.IT.insert({
+    employeeid: 2455,
+    name: "Syed",
+    salary: 90000
+})
+db.IT.insert({
+    employeeid: 24113,
+    name: "Wright John",
+    salary: 65000
+})
+
+//2.
+db.IT.find({employeeid:2455})
+db.IT.find({employeeid: 1187})
+
+//3.
+db.HR.find({name: "Bruce Wayne"})
+db.HR.find({name: "Clark Kent"})
+
+//4.
