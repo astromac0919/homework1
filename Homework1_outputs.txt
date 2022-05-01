@@ -1,0 +1,631 @@
+//Exercise A 
+
+//1.
+switched to db employees
+employees>
+
+//2.
+ClientRecords   467 kB
+admin            41 kB
+config          111 kB
+local          73.7 kB
+makeupstore     258 kB
+test           8.19 kB
+
+//Exercise B 
+
+//1. 
+ClientRecords   467 kB
+admin            41 kB
+config          111 kB
+local          73.7 kB
+makeupstore     258 kB
+temporary      8.19 kB
+test           8.19 kB
+
+test
+
+ClientRecords   467 kB
+admin            41 kB
+config          111 kB
+local          73.7 kB
+makeupstore     258 kB
+test           8.19 kB
+
+//2.
+employees> db.createCollection('accounting');
+{ ok: 1 }
+employees> db.createCollection('HR');
+{ ok: 1 }
+employees> db.createCollection('IT');
+{ ok: 1 }
+
+//3.
+accounting
+HR
+IT
+
+//Exercise C 
+//1.
+
+//insertOne document in IT
+{
+  acknowledged: true,
+  insertedId: ObjectId("625b3668f2f5fe2c28aa84db")
+}
+
+//insertMany document in accounting 
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("625b3875f2f5fe2c28aa84dc"),
+    '1': ObjectId("625b3875f2f5fe2c28aa84dd")
+  }
+}
+
+//insertMany document in HR
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("625b39a9f2f5fe2c28aa84de"),
+    '1': ObjectId("625b39a9f2f5fe2c28aa84df")
+  }
+}
+
+//2.
+//find IT collection
+{
+    _id: ObjectId("625b3668f2f5fe2c28aa84db"),
+    employeeid: 1,
+    name: 'David Smith',
+    salary: 70000
+}
+
+// find accounting collection
+[
+  {
+    _id: ObjectId("625b3875f2f5fe2c28aa84dc"),
+    employeeid: 11,
+    name: 'Jane Lane',
+    salary: 55000
+  },
+  {
+    _id: ObjectId("625b3875f2f5fe2c28aa84dd"),
+    employeeid: 12,
+    name: 'Oscar Isaac',
+    salary: 55000
+  }
+]
+
+//find HR collection
+[
+  {
+    _id: ObjectId("625b39a9f2f5fe2c28aa84de"),
+    employeeid: 21,
+    name: 'Clark Kent',
+    salary: 75000
+  },
+  {
+    _id: ObjectId("625b39a9f2f5fe2c28aa84df"),
+    employeeid: 22,
+    name: 'Bruce Wayne',
+    salary: 75000
+  }
+]
+
+
+//Exercise D
+//1.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("625b413df2f5fe2c28aa84e2") }
+}
+
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("625b4934f2f5fe2c28aa84e3") }
+}
+
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("625b49dff2f5fe2c28aa84e4") }
+}
+
+//2.
+[
+  {
+    _id: ObjectId("625b4934f2f5fe2c28aa84e3"),
+    employeeid: 2455,
+    name: 'Syed',
+    salary: 90000
+  }
+]
+
+[
+  {
+    _id: ObjectId("625b49dff2f5fe2c28aa84e4"),
+    employeeid: 1187,
+    name: 'John Steight',
+    salary: 75000
+  }
+]
+
+//3.
+[
+  {
+    _id: ObjectId("625b39a9f2f5fe2c28aa84df"),
+    employeeid: 22,
+    name: 'Bruce Wayne',
+    salary: 75000
+  }
+]
+
+employees> db.HR.find({name: "Clark Kent"})
+[
+  {
+    _id: ObjectId("625b39a9f2f5fe2c28aa84de"),
+    employeeid: 21,
+    name: 'Clark Kent',
+    salary: 75000
+  }
+]
+
+//4.
+[
+ {
+    _id: ObjectId("625b40e9f2f5fe2c28aa84e0"),
+    employeeid: 1187,
+    name: 'John Steight',
+    salary: 75000
+ }
+]
+
+//5.
+[
+  {
+    _id: ObjectId("625b40e9f2f5fe2c28aa84e0"),
+    employeeid: 1187,
+    name: 'John Steight',
+    salary: 75000
+  },
+  {
+    _id: ObjectId("625b413df2f5fe2c28aa84e2"),
+    employeeid: 24113,
+    name: 'Wright John',
+    salary: 65000
+  }
+]
+
+//Exercise E 
+
+//1. 
+[
+  {
+    _id: '01008',
+    city: 'BLANDFORD',
+    loc: [ -72.936114, 42.182949 ],
+    pop: 1240,
+    state: 'MA'
+  },
+  {
+    _id: '01012',
+    city: 'CHESTERFIELD',
+    loc: [ -72.833309, 42.38167 ],
+    pop: 177,
+    state: 'MA'
+  },
+  {
+    _id: '01026',
+    city: 'CUMMINGTON',
+    loc: [ -72.905767, 42.435296 ],
+    pop: 1484,
+    state: 'MA'
+  },
+  {
+    _id: '01032',
+    city: 'GOSHEN',
+    loc: [ -72.844092, 42.466234 ],
+    pop: 122,
+    state: 'MA'
+  },
+  {
+    _id: '01039',
+    city: 'HAYDENVILLE',
+    loc: [ -72.703178, 42.381799 ],
+    pop: 1387,
+    state: 'MA'
+  },
+  {
+    _id: '01053',
+    city: 'LEEDS',
+    loc: [ -72.703403, 42.354292 ],
+    pop: 1350,
+    state: 'MA'
+  },
+  {
+    _id: '01070',
+    city: 'PLAINFIELD',
+    loc: [ -72.918289, 42.514393 ],
+    pop: 571,
+    state: 'MA'
+  },
+  {
+    _id: '01071',
+    city: 'RUSSELL',
+    loc: [ -72.840343, 42.147063 ],
+    pop: 608,
+    state: 'MA'
+  },
+  {
+    _id: '01098',
+    city: 'WORTHINGTON',
+    loc: [ -72.931427, 42.384293 ],
+    pop: 877,
+    state: 'MA'
+  },
+  {
+    _id: '01222',
+    city: 'ASHLEY FALLS',
+    loc: [ -73.320195, 42.059552 ],
+    pop: 561,
+    state: 'MA'
+  },
+  {
+    _id: '01223',
+    city: 'BECKET',
+    loc: [ -73.120325, 42.359363 ],
+    pop: 1070,
+    state: 'MA'
+  },
+  {
+    _id: '01236',
+    city: 'HOUSATONIC',
+    loc: [ -73.374544, 42.265296 ],
+    pop: 802,
+    state: 'MA'
+  },
+  {
+    _id: '01243',
+    city: 'MIDDLEFIELD',
+    loc: [ -73.006226, 42.34795 ],
+    pop: 384,
+    state: 'MA'
+  },
+  {
+    _id: '01245',
+    city: 'WEST OTIS',
+    loc: [ -73.213452, 42.187847 ],
+    pop: 329,
+    state: 'MA'
+  },
+  {
+    _id: '01253',
+    city: 'OTIS',
+    loc: [ -73.082093, 42.18988 ],
+    pop: 1060,
+    state: 'MA'
+  },
+  {
+    _id: '01254',
+    city: 'RICHMOND',
+    loc: [ -73.364457, 42.378398 ],
+    pop: 1134,
+    state: 'MA'
+  },
+  {
+    _id: '01255',
+    city: 'SANDISFIELD',
+    loc: [ -73.116285, 42.109429 ],
+    pop: 651,
+    state: 'MA'
+  },
+  {
+    _id: '01256',
+    city: 'SAVOY',
+    loc: [ -73.023281, 42.576964 ],
+    pop: 632,
+    state: 'MA'
+  },
+  {
+    _id: '01258',
+    city: 'SOUTH EGREMONT',
+    loc: [ -73.456575, 42.101153 ],
+    pop: 135,
+    state: 'MA'
+  },
+  {
+    _id: '01259',
+    city: 'SOUTHFIELD',
+    loc: [ -73.260933, 42.078014 ],
+    pop: 622,
+    state: 'MA'
+  }
+]
+Type "it" for more
+
+//2.
+[
+  {
+    _id: '01011',
+    city: 'CHESTER',
+    loc: [ -72.988761, 42.279421 ],
+    pop: 1688,
+    state: 'MA'
+  },
+  {
+    _id: '03036',
+    city: 'CHESTER',
+    loc: [ -71.244962, 42.967756 ],
+    pop: 2691,
+    state: 'NH'
+  },
+  {
+    _id: '05143',
+    city: 'CHESTER',
+    loc: [ -72.603125, 43.283124 ],
+    pop: 3449,
+    state: 'VT'
+  },
+  {
+    _id: '06412',
+    city: 'CHESTER',
+    loc: [ -72.464293, 41.404903 ],
+    pop: 3417,
+    state: 'CT'
+  },
+  {
+    _id: '07930',
+    city: 'CHESTER',
+    loc: [ -74.677649, 40.789193 ],
+    pop: 6635,
+    state: 'NJ'
+  },
+  {
+    _id: '10918',
+    city: 'CHESTER',
+    loc: [ -74.265116, 41.355381 ],
+    pop: 9196,
+    state: 'NY'
+  },
+  {
+    _id: '19013',
+    city: 'CHESTER',
+    loc: [ -75.374687, 39.849817 ],
+    pop: 49144,
+    state: 'PA'
+  },
+  {
+    _id: '21619',
+    city: 'CHESTER',
+    loc: [ -76.284183, 38.958296 ],
+    pop: 4199,
+    state: 'MD'
+  },
+  {
+    _id: '23831',
+    city: 'CHESTER',
+    loc: [ -77.41557, 37.342934 ],
+    pop: 24788,
+    state: 'VA'
+  },
+  {
+    _id: '26034',
+    city: 'CHESTER',
+    loc: [ -80.558439, 40.598109 ],
+    pop: 5966,
+    state: 'WV'
+  },
+  {
+    _id: '29706',
+    city: 'CHESTER',
+    loc: [ -81.21856, 34.714897 ],
+    pop: 21920,
+    state: 'SC'
+  },
+  {
+    _id: '31012',
+    city: 'CHESTER',
+    loc: [ -83.174029, 32.398152 ],
+    pop: 1517,
+    state: 'GA'
+  },
+  {
+    _id: '52134',
+    city: 'CHESTER',
+    loc: [ -92.415528, 43.473021 ],
+    pop: 571,
+    state: 'IA'
+  },
+  {
+    _id: '57016',
+    city: 'CHESTER',
+    loc: [ -96.975883, 43.898077 ],
+    pop: 799,
+    state: 'SD'
+  },
+  {
+    _id: '59522',
+    city: 'CHESTER',
+    loc: [ -110.97982, 48.454125 ],
+    pop: 1530,
+    state: 'MT'
+  },
+  {
+    _id: '62233',
+    city: 'CHESTER',
+    loc: [ -89.821807, 37.918822 ],
+    pop: 9436,
+    state: 'IL'
+  },
+  {
+    _id: '68327',
+    city: 'CHESTER',
+    loc: [ -97.61969, 40.028954 ],
+    pop: 527,
+    state: 'NE'
+  },
+  {
+    _id: '72934',
+    city: 'CHESTER',
+    loc: [ -94.202026, 35.689776 ],
+    pop: 1004,
+    state: 'AR'
+  },
+  {
+    _id: '73838',
+    city: 'CHESTER',
+    loc: [ -98.884078, 36.252841 ],
+    pop: 561,
+    state: 'OK'
+  },
+  {
+    _id: '75936',
+    city: 'CHESTER',
+    loc: [ -94.458099, 30.928532 ],
+    pop: 1588,
+    state: 'TX'
+  }
+]
+Type "it" for more
+
+//3. 
+[
+  {
+    _id: '49751',
+    city: 'JOHANNESBURG',
+    loc: [ -84.385708, 45.015207 ],
+    pop: 2062,
+    state: 'MI'
+  }
+]
+
+//4.
+[
+  {
+    _id: '02885',
+    city: 'WARREN',
+    loc: [ -71.270165, 41.725618 ],
+    pop: 11385,
+    state: 'RI'
+  },
+  {
+    _id: '03279',
+    city: 'WARREN',
+    loc: [ -71.89013, 43.944667 ],
+    pop: 886,
+    state: 'NH'
+  },
+  {
+    _id: '04864',
+    city: 'WARREN',
+    loc: [ -69.247894, 44.127066 ],
+    pop: 2816,
+    state: 'ME'
+  },
+  {
+    _id: '06754',
+    city: 'WARREN',
+    loc: [ -73.367472, 41.770084 ],
+    pop: 1278,
+    state: 'CT'
+  },
+  {
+    _id: '07059',
+    city: 'WARREN',
+    loc: [ -74.510456, 40.631787 ],
+    pop: 10867,
+    state: 'NJ'
+  },
+  {
+    _id: '44481',
+    city: 'WARREN',
+    loc: [ -80.871806, 41.172426 ],
+    pop: 5407,
+    state: 'OH'
+  },
+  {
+    _id: '44483',
+    city: 'WARREN',
+    loc: [ -80.816448, 41.263878 ],
+    pop: 30257,
+    state: 'OH'
+  },
+  {
+    _id: '44484',
+    city: 'WARREN',
+    loc: [ -80.764243, 41.231819 ],
+    pop: 25898,
+    state: 'OH'
+  },
+  {
+    _id: '44485',
+    city: 'WARREN',
+    loc: [ -80.844136, 41.240511 ],
+    pop: 24847,
+    state: 'OH'
+  },
+  {
+    _id: '46792',
+    city: 'WARREN',
+    loc: [ -85.418337, 40.688646 ],
+    pop: 2404,
+    state: 'IN'
+  },
+  {
+    _id: '48089',
+    city: 'WARREN',
+    loc: [ -82.997385, 42.468494 ],
+    pop: 35861,
+    state: 'MI'
+  },
+  {
+    _id: '48091',
+    city: 'WARREN',
+    loc: [ -83.059263, 42.466463 ],
+    pop: 33165,
+    state: 'MI'
+  },
+  {
+    _id: '48092',
+    city: 'WARREN',
+    loc: [ -83.064278, 42.512459 ],
+    pop: 25781,
+    state: 'MI'
+  },
+  {
+    _id: '48093',
+    city: 'WARREN',
+    loc: [ -82.996764, 42.514943 ],
+    pop: 50327,
+    state: 'MI'
+  },
+  {
+    _id: '61087',
+    city: 'WARREN',
+    loc: [ -89.985992, 42.489001 ],
+    pop: 1967,
+    state: 'IL'
+  },
+  {
+    _id: '71671',
+    city: 'WARREN',
+    loc: [ -92.077824, 33.613983 ],
+    pop: 8828,
+    state: 'AR'
+  },
+  {
+    _id: '77664',
+    city: 'WARREN',
+    loc: [ -94.411974, 30.597776 ],
+    pop: 2465,
+    state: 'TX'
+  },
+  {
+    _id: '97053',
+    city: 'WARREN',
+    loc: [ -122.863445, 45.826043 ],
+    pop: 2378,
+    state: 'OR'
+  }
+]
+
