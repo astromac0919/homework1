@@ -56,3 +56,21 @@ db.HR.find({name: "Bruce Wayne"})
 db.HR.find({name: "Clark Kent"})
 
 //4.
+db.IT.find({ name: { $regex: /^John/}})
+
+//5.
+db.IT.find({ name: { $regex: /John/}})
+
+//Exercise E
+//1.
+db.zips.find({ pop: { $lt: 1500 }})
+
+//2.
+db.zips.find({ city: { $regex: /^CHESTER$/ }})
+
+//3.
+db.zips.find({ loc: { $in: [-84.38570799999999, 45.015207]}})
+
+//4.
+db.zips.find({ $or: [ {city: { $regex: /^WARREN$/}}, { loc: { $in: [-80.76424299999999, 41.231819]}}]})
+
